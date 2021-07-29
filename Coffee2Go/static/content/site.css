@@ -1,12 +1,15 @@
+/*style information */
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #bb9175;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+  
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -14,6 +17,7 @@ input,
 select,
 textarea {
     max-width: 280px;
+    display: block;
 }
 
 /* styles for validation helpers */
@@ -40,3 +44,18 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+/*Home page style*/
+.jumbotron {
+    background-color: #bb9175;
+    position: relative
+}
+/*image style*/
+.lead img {
+    position: absolute;
+    
+}
+/*image style*/
+img {
+    width: 80%;
+}
+

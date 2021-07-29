@@ -1,29 +1,26 @@
 % rebase('layout.tpl', title='Home Page', year=year)
-
+<!--Home page Information -->
 <div class="jumbotron">
-    <h1>Bottle</h1>
-    <p class="lead">Bottle is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://bottlepy.org/docs/dev/index.html" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <h1>Go2Coffee</h1>
+    <p class="lead">With Go2Coffee you can locate the best coffee house New York city has to offer with just a click away!</p>
+  <img src="/static/coffee.jpg" alt="Coffee ">
 </div>
+
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Coffee for you</h2>
         <p>
-            Bottle gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            If you are in a hurry, but still wanting your coffee fix then our website is for you.
         </p>
-        <p><a class="btn btn-default" href="http://bottlepy.org/docs/dev/index.html">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
+        <h2>Finding The Best</h2>
+        <p>Not only can we help you find a place to get your coffee, we can find the highest rated coffee shops. We all know how a good cup of coffee can change our day.</p>
     </div>
     <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+        <h2>Stop Traveling The Distance</h2>
+        <p>We all love a great coffee shop but none of us want to travel far. That's ok we can help you stop traveling miles and find the  best coffee shop close to you.</p>
     </div>
 </div>
+
