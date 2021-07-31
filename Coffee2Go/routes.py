@@ -45,14 +45,13 @@ def newUser():
         message= 'Please Sign Up ',
         year=datetime.now().year
         )
-#This is the route for the map page taht we have not created yet
+#This is the route for the map page 
 @route('/map')
 @view('map')
 def map():
     """Renders the map page."""
     return dict(
         title = 'Coffee Fix',
-        message= 'Please Sign Up ',
         year=datetime.now().year
         )
 #route for the image 
