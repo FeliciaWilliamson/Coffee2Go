@@ -1,6 +1,7 @@
 import folium
 import pandas as pd
 #Set the intital location of the map view
+
 my_map = folium.Map(location=[40.75726,-73.97609], tiles='OpenStreetMap',  zoom_start =15)
 my_map
 
@@ -16,9 +17,11 @@ for _, shop in shops.iterrows():
     folium.Marker(
         location=[shop['Latitude'], shop['Longitude']], 
         popup=shop['Name'] + '\n' + shop['Address'],
-        tooltip=shop['Name']
+        tooltip=shop['Name'],
+        icon=folium.Icon(color='white',icon='coffee', icon_color='brown', prefix='fa'),
+        
     ).add_to(my_map)
-
+    
 my_map
 
 #Outputs map and information on the map.html file

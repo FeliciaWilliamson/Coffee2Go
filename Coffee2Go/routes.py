@@ -22,7 +22,7 @@ def about():
     """Renders the about page."""
     return dict(
         title='About',
-        message='Your application description page.',
+        message='A little about us.',
         year=datetime.now().year
     )
 #route for login page
@@ -52,6 +52,7 @@ def map():
     """Renders the map page."""
     return dict(
         title = 'Coffee Fix',
+
         year=datetime.now().year
         )
 #route for the image 

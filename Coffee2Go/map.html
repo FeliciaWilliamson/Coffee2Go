@@ -1,390 +1,393 @@
-
 <!DOCTYPE html>
-<!--html page that outputs the map and it's information'-->
-<head>
+<head>    
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-    <script>
-        L_NO_TOUCH = false;
-        L_DISABLE_3D = false;
-    </script>
-
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #bb9175;
-        }
-    </style>
-    <style>
-        #map {
-            position: absolute;
-            top: 0px;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            background-color: #bb9175;
-            color: #bb9175;
-        }
-       
-    </style>
-    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
-
-    <meta name="viewport" content="width=device-width,
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <style>
-        #map_30a7bf892ae7464d8ee24d8990c019a9 {
-            position: relative;
-            width: 100.0%;
-            height: 100.0%;
-            left: 0.0%;
-            top: 0.0%;
-            background-color: #bb9175;
-           
-        }
-        p {
-            background-color: #bb9175;
-            margin-top: 50px;
-            margin-bottom: 0px;
-            padding-bottom: 30px;
-            font-size: 20px;
-        }
-    </style>
-
+            <style>
+                #map_8ecebd7c37154907b0719eff93d01496 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
 </head>
-
-<body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Go2Coffee</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/newUser">Sign Up</a></li>
-                    <li><a href="/map">Find My Fix</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <p>Go2Coffee<br />
-     Time to find your fix!
-    </p>
-        <div class="folium-map" id="map_30a7bf892ae7464d8ee24d8990c019a9"></div>
-  
+<body>    
+    
+            <div class="folium-map" id="map_8ecebd7c37154907b0719eff93d01496" ></div>
+        
 </body>
+<script>    
+    
+            var map_8ecebd7c37154907b0719eff93d01496 = L.map(
+                "map_8ecebd7c37154907b0719eff93d01496",
+                {
+                    center: [40.75726, -73.97609],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-<script>
-  
-    var map_30a7bf892ae7464d8ee24d8990c019a9 = L.map(
-        "map_30a7bf892ae7464d8ee24d8990c019a9",
-        {
-            center: [40.75726, -73.97609],
-            crs: L.CRS.EPSG3857,
-            zoom: 15,
-            zoomControl: true,
-            preferCanvas: false,
-        }
-    );
+            
 
+        
+    
+            var tile_layer_72fffb2e39e34ea9bf4eb4261c90253f = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var marker_a433c8d9291545cb8ed854d409353f7b = L.marker(
+                [40.7597568, -73.9753786],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_b143ac050a864896aca8bfb9d9dbbcd3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_a433c8d9291545cb8ed854d409353f7b.setIcon(icon_b143ac050a864896aca8bfb9d9dbbcd3);
+        
+    
+        var popup_84f82943ee91409aaf160b0c44815dbf = L.popup({"maxWidth": "100%"});
 
+        
+            var html_95bf579916b345d3aafe961521a06e9c = $(`<div id="html_95bf579916b345d3aafe961521a06e9c" style="width: 100.0%; height: 100.0%;">Blue bottle Coffee 10 E 53rd St., 10022</div>`)[0];
+            popup_84f82943ee91409aaf160b0c44815dbf.setContent(html_95bf579916b345d3aafe961521a06e9c);
+        
 
-
-
-    var tile_layer_fc64557c37894f919a5b15ab214402bf = L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        { "attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false }
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var marker_65e53d912dfe4111b137f65dc068e4f2 = L.marker(
-        [40.7597568, -73.9753786],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_f320bf6ebe3e414daf2a99d1606bbbbb = L.popup({ "maxWidth": "100%" });
-
-
-    var html_8f5aee5745cd4c2b8ef88e5fad0efaf9 = $(`<div id="html_8f5aee5745cd4c2b8ef88e5fad0efaf9" style="width: 100.0%; height: 100.0%;">Blue bottle Coffee 10 E 53rd St., 10022</div>`)[0];
-    popup_f320bf6ebe3e414daf2a99d1606bbbbb.setContent(html_8f5aee5745cd4c2b8ef88e5fad0efaf9);
-
-
-    marker_65e53d912dfe4111b137f65dc068e4f2.bindPopup(popup_f320bf6ebe3e414daf2a99d1606bbbbb)
+        marker_a433c8d9291545cb8ed854d409353f7b.bindPopup(popup_84f82943ee91409aaf160b0c44815dbf)
         ;
 
-
-
-
-    marker_65e53d912dfe4111b137f65dc068e4f2.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_a433c8d9291545cb8ed854d409353f7b.bindTooltip(
+                `<div>
                      Blue bottle Coffee
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_d5614831d82e4f2f963369c0bd5ba547 = L.marker(
+                [40.75875, -73.97445],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_dec1ef22021140ada05f5c1f08eb2604 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_d5614831d82e4f2f963369c0bd5ba547.setIcon(icon_dec1ef22021140ada05f5c1f08eb2604);
+        
+    
+        var popup_21de9efdb03341e7bf57bcfba0606759 = L.popup({"maxWidth": "100%"});
 
+        
+            var html_1aaaefa52b81400a9daf309f79e275fb = $(`<div id="html_1aaaefa52b81400a9daf309f79e275fb" style="width: 100.0%; height: 100.0%;">Gregorys Coffee 485 Madison Ave., 10022</div>`)[0];
+            popup_21de9efdb03341e7bf57bcfba0606759.setContent(html_1aaaefa52b81400a9daf309f79e275fb);
+        
 
-    var marker_3b10d243266e4b82b9cff587a809cf33 = L.marker(
-        [40.75875, -73.97445],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_dea3c8165e5443039a2af680bddf6c32 = L.popup({ "maxWidth": "100%" });
-
-
-    var html_7af83254836d4786ba7fd0d586261928 = $(`<div id="html_7af83254836d4786ba7fd0d586261928" style="width: 100.0%; height: 100.0%;">Gregorys Coffee 485 Madison Ave., 10022</div>`)[0];
-    popup_dea3c8165e5443039a2af680bddf6c32.setContent(html_7af83254836d4786ba7fd0d586261928);
-
-
-    marker_3b10d243266e4b82b9cff587a809cf33.bindPopup(popup_dea3c8165e5443039a2af680bddf6c32)
+        marker_d5614831d82e4f2f963369c0bd5ba547.bindPopup(popup_21de9efdb03341e7bf57bcfba0606759)
         ;
 
-
-
-
-    marker_3b10d243266e4b82b9cff587a809cf33.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_d5614831d82e4f2f963369c0bd5ba547.bindTooltip(
+                `<div>
                      Gregorys Coffee
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_d890a21551fe4c868289278059f93fa7 = L.marker(
+                [40.75951, -73.97797],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_d4fae14af86f45f58dfd8dea7452b8fc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_d890a21551fe4c868289278059f93fa7.setIcon(icon_d4fae14af86f45f58dfd8dea7452b8fc);
+        
+    
+        var popup_d5dc1b74c47240c48e7f8fb460c9fce3 = L.popup({"maxWidth": "100%"});
 
+        
+            var html_ac99c4bf815c4336bc4c445d90909a68 = $(`<div id="html_ac99c4bf815c4336bc4c445d90909a68" style="width: 100.0%; height: 100.0%;">Ralphs Coffee 45 Rockefeller Plaza, 10111</div>`)[0];
+            popup_d5dc1b74c47240c48e7f8fb460c9fce3.setContent(html_ac99c4bf815c4336bc4c445d90909a68);
+        
 
-    var marker_c54a7bd032734c508679ba5c88c6b003 = L.marker(
-        [40.75951, -73.97797],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_f43e90b6d2514297b45e10885242871d = L.popup({ "maxWidth": "100%" });
-
-
-    var html_0bd94ba5052c414187c30857f8bd6bb4 = $(`<div id="html_0bd94ba5052c414187c30857f8bd6bb4" style="width: 100.0%; height: 100.0%;">Ralphs Coffee 45 Rockefeller Plaza, 10111</div>`)[0];
-    popup_f43e90b6d2514297b45e10885242871d.setContent(html_0bd94ba5052c414187c30857f8bd6bb4);
-
-
-    marker_c54a7bd032734c508679ba5c88c6b003.bindPopup(popup_f43e90b6d2514297b45e10885242871d)
+        marker_d890a21551fe4c868289278059f93fa7.bindPopup(popup_d5dc1b74c47240c48e7f8fb460c9fce3)
         ;
 
-
-
-
-    marker_c54a7bd032734c508679ba5c88c6b003.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_d890a21551fe4c868289278059f93fa7.bindTooltip(
+                `<div>
                      Ralphs Coffee
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_de014b28ffbc4ca2993d758485930542 = L.marker(
+                [40.75743, -73.97583],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_8a7fbd3e05644b8281097ab94085c408 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_de014b28ffbc4ca2993d758485930542.setIcon(icon_8a7fbd3e05644b8281097ab94085c408);
+        
+    
+        var popup_fa72152a745c45fd813990d90306c216 = L.popup({"maxWidth": "100%"});
 
+        
+            var html_43152cc0d3ca43a3bd75e4ab0a102a2c = $(`<div id="html_43152cc0d3ca43a3bd75e4ab0a102a2c" style="width: 100.0%; height: 100.0%;">Starbucks 425 Madison Ave, 10017</div>`)[0];
+            popup_fa72152a745c45fd813990d90306c216.setContent(html_43152cc0d3ca43a3bd75e4ab0a102a2c);
+        
 
-    var marker_b67ee7389ff546a5803ff4aa4a843755 = L.marker(
-        [40.75743, -73.97583],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_674c47908418409b94e1599bf07ea6d7 = L.popup({ "maxWidth": "100%" });
-
-
-    var html_a44675a5738a40e0a6dbc4113830e392 = $(`<div id="html_a44675a5738a40e0a6dbc4113830e392" style="width: 100.0%; height: 100.0%;">Starbucks 425 Madison Ave, 10017</div>`)[0];
-    popup_674c47908418409b94e1599bf07ea6d7.setContent(html_a44675a5738a40e0a6dbc4113830e392);
-
-
-    marker_b67ee7389ff546a5803ff4aa4a843755.bindPopup(popup_674c47908418409b94e1599bf07ea6d7)
+        marker_de014b28ffbc4ca2993d758485930542.bindPopup(popup_fa72152a745c45fd813990d90306c216)
         ;
 
-
-
-
-    marker_b67ee7389ff546a5803ff4aa4a843755.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_de014b28ffbc4ca2993d758485930542.bindTooltip(
+                `<div>
                      Starbucks
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_e95380fdb3f040b1b20e62b8ba76bbb7 = L.marker(
+                [40.75726, -73.97609],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_38b24d2f06a74ed8b3486a7b8a9c3569 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_e95380fdb3f040b1b20e62b8ba76bbb7.setIcon(icon_38b24d2f06a74ed8b3486a7b8a9c3569);
+        
+    
+        var popup_8505aeaa699a4e71abf69fd11d4ae3e4 = L.popup({"maxWidth": "100%"});
 
+        
+            var html_e84e6740c9b54fc08c9983390fa96cf0 = $(`<div id="html_e84e6740c9b54fc08c9983390fa96cf0" style="width: 100.0%; height: 100.0%;">Bluestone Land Midtown East Coffee Shop 400 Madison Ave, 10017</div>`)[0];
+            popup_8505aeaa699a4e71abf69fd11d4ae3e4.setContent(html_e84e6740c9b54fc08c9983390fa96cf0);
+        
 
-    var marker_3872f07de3f34fdb95a0dc807a76674e = L.marker(
-        [40.75726, -73.97609],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_f165cc64f1df4fd3817968d572277e8d = L.popup({ "maxWidth": "100%" });
-
-
-    var html_966bfa2bbfa8446ea933c2005794c0b0 = $(`<div id="html_966bfa2bbfa8446ea933c2005794c0b0" style="width: 100.0%; height: 100.0%;">Bluestone Land Midtown East Coffee Shop 400 Madison Ave, 10017</div>`)[0];
-    popup_f165cc64f1df4fd3817968d572277e8d.setContent(html_966bfa2bbfa8446ea933c2005794c0b0);
-
-
-    marker_3872f07de3f34fdb95a0dc807a76674e.bindPopup(popup_f165cc64f1df4fd3817968d572277e8d)
+        marker_e95380fdb3f040b1b20e62b8ba76bbb7.bindPopup(popup_8505aeaa699a4e71abf69fd11d4ae3e4)
         ;
 
-
-
-
-    marker_3872f07de3f34fdb95a0dc807a76674e.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_e95380fdb3f040b1b20e62b8ba76bbb7.bindTooltip(
+                `<div>
                      Bluestone Land Midtown East Coffee Shop
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_af11997e4e1f43d6aac4d0706355435c = L.marker(
+                [40.75215, -73.98562],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_75aab17a2834445fa94cc0b3526481f4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_af11997e4e1f43d6aac4d0706355435c.setIcon(icon_75aab17a2834445fa94cc0b3526481f4);
+        
+    
+        var popup_a4823d724fbc4204b88d5499a035679b = L.popup({"maxWidth": "100%"});
 
+        
+            var html_e3f4d75339434846a89272a06a57bcfc = $(`<div id="html_e3f4d75339434846a89272a06a57bcfc" style="width: 100.0%; height: 100.0%;">Culture Espresso 72 W. 38th St, 10018</div>`)[0];
+            popup_a4823d724fbc4204b88d5499a035679b.setContent(html_e3f4d75339434846a89272a06a57bcfc);
+        
 
-    var marker_6e7fed3afdff4d63bbb063a84b971275 = L.marker(
-        [40.75215, -73.98562],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_13a5971d8fb24daa8681bc3c6495d9fc = L.popup({ "maxWidth": "100%" });
-
-
-    var html_6f8532199c004858aa3ae5ac57def744 = $(`<div id="html_6f8532199c004858aa3ae5ac57def744" style="width: 100.0%; height: 100.0%;">Culture Espresso 72 W. 38th St, 10018</div>`)[0];
-    popup_13a5971d8fb24daa8681bc3c6495d9fc.setContent(html_6f8532199c004858aa3ae5ac57def744);
-
-
-    marker_6e7fed3afdff4d63bbb063a84b971275.bindPopup(popup_13a5971d8fb24daa8681bc3c6495d9fc)
+        marker_af11997e4e1f43d6aac4d0706355435c.bindPopup(popup_a4823d724fbc4204b88d5499a035679b)
         ;
 
-
-
-
-    marker_6e7fed3afdff4d63bbb063a84b971275.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_af11997e4e1f43d6aac4d0706355435c.bindTooltip(
+                `<div>
                      Culture Espresso
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_c5b8bf27f4534a6a9c25b0b4b0af4175 = L.marker(
+                [40.75747, -73.96747],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_6569c16ee532478cb34f1464a5e488be = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_c5b8bf27f4534a6a9c25b0b4b0af4175.setIcon(icon_6569c16ee532478cb34f1464a5e488be);
+        
+    
+        var popup_1d7b1e0c04e647a1a85e11db8400b52d = L.popup({"maxWidth": "100%"});
 
+        
+            var html_a03455b0a32a46079bab856e717d878f = $(`<div id="html_a03455b0a32a46079bab856e717d878f" style="width: 100.0%; height: 100.0%;">Brooklyn Diamond Coffee 240 E 54th St., 10022</div>`)[0];
+            popup_1d7b1e0c04e647a1a85e11db8400b52d.setContent(html_a03455b0a32a46079bab856e717d878f);
+        
 
-    var marker_6d4b1d034be94832bcc222e2d6c9bb09 = L.marker(
-        [40.75747, -73.96747],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_c7d038febbf8421e90083049f468238b = L.popup({ "maxWidth": "100%" });
-
-
-    var html_7dfff10fbe424aabab27be4c5a611609 = $(`<div id="html_7dfff10fbe424aabab27be4c5a611609" style="width: 100.0%; height: 100.0%;">Brooklyn Diamond Coffee 240 E 54th St., 10022</div>`)[0];
-    popup_c7d038febbf8421e90083049f468238b.setContent(html_7dfff10fbe424aabab27be4c5a611609);
-
-
-    marker_6d4b1d034be94832bcc222e2d6c9bb09.bindPopup(popup_c7d038febbf8421e90083049f468238b)
+        marker_c5b8bf27f4534a6a9c25b0b4b0af4175.bindPopup(popup_1d7b1e0c04e647a1a85e11db8400b52d)
         ;
 
-
-
-
-    marker_6d4b1d034be94832bcc222e2d6c9bb09.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_c5b8bf27f4534a6a9c25b0b4b0af4175.bindTooltip(
+                `<div>
                      Brooklyn Diamond Coffee
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_b71ecf8f48ce44d19ee3fb55c2d70ecb = L.marker(
+                [40.75244, -73.97378],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_418ec066e1414af68cd1ef2fbd62bea0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_b71ecf8f48ce44d19ee3fb55c2d70ecb.setIcon(icon_418ec066e1414af68cd1ef2fbd62bea0);
+        
+    
+        var popup_acffc831568f4ab38c4fd6d0f921dc5e = L.popup({"maxWidth": "100%"});
 
+        
+            var html_11a39974a2ce4f00a310ae48847c5ae2 = $(`<div id="html_11a39974a2ce4f00a310ae48847c5ae2" style="width: 100.0%; height: 100.0%;">Little Collins 708 3rd Ave, 10017</div>`)[0];
+            popup_acffc831568f4ab38c4fd6d0f921dc5e.setContent(html_11a39974a2ce4f00a310ae48847c5ae2);
+        
 
-    var marker_8f2c2346d5894652bb42421c90dc9c9e = L.marker(
-        [40.75244, -73.97378],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_54ab6be8461c416bbbf18e8f80575b11 = L.popup({ "maxWidth": "100%" });
-
-
-    var html_160ad4631aee4d9eb03918be1279aab0 = $(`<div id="html_160ad4631aee4d9eb03918be1279aab0" style="width: 100.0%; height: 100.0%;">Little Collins 708 3rd Ave, 10017</div>`)[0];
-    popup_54ab6be8461c416bbbf18e8f80575b11.setContent(html_160ad4631aee4d9eb03918be1279aab0);
-
-
-    marker_8f2c2346d5894652bb42421c90dc9c9e.bindPopup(popup_54ab6be8461c416bbbf18e8f80575b11)
+        marker_b71ecf8f48ce44d19ee3fb55c2d70ecb.bindPopup(popup_acffc831568f4ab38c4fd6d0f921dc5e)
         ;
 
-
-
-
-    marker_8f2c2346d5894652bb42421c90dc9c9e.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_b71ecf8f48ce44d19ee3fb55c2d70ecb.bindTooltip(
+                `<div>
                      Little Collins
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_7ca0e7ae58274691ba83b8bb1a0cccdb = L.marker(
+                [40.75751, -73.97031],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_46d4ba96456540f48fa8d8ea20fabb85 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_7ca0e7ae58274691ba83b8bb1a0cccdb.setIcon(icon_46d4ba96456540f48fa8d8ea20fabb85);
+        
+    
+        var popup_a14ee2d6cf40466fbbd148bd3ec972b3 = L.popup({"maxWidth": "100%"});
 
+        
+            var html_8b3309196f904f2a81c8c559c5319895 = $(`<div id="html_8b3309196f904f2a81c8c559c5319895" style="width: 100.0%; height: 100.0%;">Ground Central Coffee Company 155 E 52nd St, 10022</div>`)[0];
+            popup_a14ee2d6cf40466fbbd148bd3ec972b3.setContent(html_8b3309196f904f2a81c8c559c5319895);
+        
 
-    var marker_35d1d11781364f02b9cd30e14e0113b3 = L.marker(
-        [40.75751, -73.97031],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_a15a7ca88b3a43eb8f515fbb4a3d1421 = L.popup({ "maxWidth": "100%" });
-
-
-    var html_a74303b1c97e4e6e93e8b041f61eac43 = $(`<div id="html_a74303b1c97e4e6e93e8b041f61eac43" style="width: 100.0%; height: 100.0%;">Ground Central Coffee Company 155 E 52nd St, 10022</div>`)[0];
-    popup_a15a7ca88b3a43eb8f515fbb4a3d1421.setContent(html_a74303b1c97e4e6e93e8b041f61eac43);
-
-
-    marker_35d1d11781364f02b9cd30e14e0113b3.bindPopup(popup_a15a7ca88b3a43eb8f515fbb4a3d1421)
+        marker_7ca0e7ae58274691ba83b8bb1a0cccdb.bindPopup(popup_a14ee2d6cf40466fbbd148bd3ec972b3)
         ;
 
-
-
-
-    marker_35d1d11781364f02b9cd30e14e0113b3.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_7ca0e7ae58274691ba83b8bb1a0cccdb.bindTooltip(
+                `<div>
                      Ground Central Coffee Company
                  </div>`,
-        { "sticky": true }
-    );
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee1daff02b7f4726a6d64d6e847f5766 = L.marker(
+                [40.75129, -73.97889],
+                {}
+            ).addTo(map_8ecebd7c37154907b0719eff93d01496);
+        
+    
+            var icon_fad62b8520f24c9bb969fa10612dc70d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "brown", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_ee1daff02b7f4726a6d64d6e847f5766.setIcon(icon_fad62b8520f24c9bb969fa10612dc70d);
+        
+    
+        var popup_26404b8f928f432894e78e9717d638e4 = L.popup({"maxWidth": "100%"});
 
+        
+            var html_04219a0f4ec94da7a2fe1fe2daf0bcec = $(`<div id="html_04219a0f4ec94da7a2fe1fe2daf0bcec" style="width: 100.0%; height: 100.0%;">2beans 100 Park Ave, 10017</div>`)[0];
+            popup_26404b8f928f432894e78e9717d638e4.setContent(html_04219a0f4ec94da7a2fe1fe2daf0bcec);
+        
 
-    var marker_dbe0cd44c37a4589841c474f25699a8c = L.marker(
-        [40.75129, -73.97889],
-        {}
-    ).addTo(map_30a7bf892ae7464d8ee24d8990c019a9);
-
-
-    var popup_436507edcfc34315b95e005f29101ec0 = L.popup({ "maxWidth": "100%" });
-
-
-    var html_119951ad7c674585aa565a5c40c584ce = $(`<div id="html_119951ad7c674585aa565a5c40c584ce" style="width: 100.0%; height: 100.0%;">2beans 100 Park Ave, 10017</div>`)[0];
-    popup_436507edcfc34315b95e005f29101ec0.setContent(html_119951ad7c674585aa565a5c40c584ce);
-
-
-    marker_dbe0cd44c37a4589841c474f25699a8c.bindPopup(popup_436507edcfc34315b95e005f29101ec0)
+        marker_ee1daff02b7f4726a6d64d6e847f5766.bindPopup(popup_26404b8f928f432894e78e9717d638e4)
         ;
 
-
-
-
-    marker_dbe0cd44c37a4589841c474f25699a8c.bindTooltip(
-        `<div>
+        
+    
+    
+            marker_ee1daff02b7f4726a6d64d6e847f5766.bindTooltip(
+                `<div>
                      2beans
                  </div>`,
-        { "sticky": true }
-    );
-
+                {"sticky": true}
+            );
+        
 </script>
