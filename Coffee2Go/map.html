@@ -30,13 +30,44 @@
                     left: 0.0%;
                     top: 0.0%;
                 }
+                .coffee {
+                    padding-top: 50px;
+                    padding-left: 10px;
+                    background-color: #bb9175;
+                    font: 20px;
+                }
             </style>
         
 </head>
-<body>    
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Go2Coffee</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/newUser">Sign Up</a></li>
+                    <li><a href="/map">Find My Fix</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="coffee">Go2Coffee<br/>
     
-            <div class="folium-map" id="map_8ecebd7c37154907b0719eff93d01496" ></div>
-        
+    Time to find your fix!
+    </div>
+    
+    <div class="folium-map" id="map_8ecebd7c37154907b0719eff93d01496"></div>
+
 </body>
 <script>    
     

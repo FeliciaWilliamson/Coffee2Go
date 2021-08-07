@@ -7,4 +7,5 @@ mydb=client['Go2Coffee']
 mycol = mydb['CoffeeShops']
 
 for x in mycol.find():
-  print(x)          
+  print(x)   
+  
