@@ -18,11 +18,12 @@ for _, shop in shops.iterrows():
         location=[shop['Latitude'], shop['Longitude']], 
         popup=shop['Name'] + '\n' + shop['Address'],
         tooltip=shop['Name'],
+ #Added coffee icons to the marker and changed the color.
         icon=folium.Icon(color='white',icon='coffee', icon_color='brown', prefix='fa'),
         
     ).add_to(my_map)
     
 my_map
-
+map_text= """<html><div class="coffee">Go2Coffe<br/>Lets Find Your Fix!</div> </html>"""
 #Outputs map and information on the map.html file
-my_map.save('map.html')
+my_map.save('map.html', map_text)

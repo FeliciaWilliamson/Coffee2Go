@@ -46,6 +46,8 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="error.html" />
+    <Content Include="map.html" />
     <Content Include="requirements.txt" />
     <Content Include="static\.editorconfig" />
     <Content Include="static\content\bootstrap.css" />
@@ -72,12 +74,10 @@
     <Content Include="static\scripts\_references.js" />
     <Content Include="views\about.tpl" />
     <Content Include="views\coffee.tpl" />
-    <Content Include="views\contact.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
     <Content Include="views\login.tpl" />
     <Content Include="views\newUser.tpl" />
-    <Content Include="WebPage1.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="Coffee\">

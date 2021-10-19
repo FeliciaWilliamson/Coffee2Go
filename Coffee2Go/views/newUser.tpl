@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-% rebase('layout.tpl', title='Home Page', year=year)
+% rebase('layout.tpl', title='New User', year=year)
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
@@ -10,9 +10,9 @@
       <title>New User</title>
 </head>
 <body>
-<!--New user form for them to sign up with us -->
+<!--New user form for them to sign up with us, when submit button is selected the new user is redirected to the map.html page -->
 <h2>New User</h2>
-    <form method="post">
+    <form method="GET"  action="/map">
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" name="firstName">
 
